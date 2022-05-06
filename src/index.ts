@@ -76,24 +76,25 @@ async function getResult() {
 //Ejercicios parte 2
 
 //Primero
-
+/*
 const myPromise = new Promise((resolve) => {
     setTimeout(() => {
         resolve('success')
     }, 500)
 });
 
-myPromise
-    .then((result) => {
-        return 'This is a ' + result
-    })
-    .then((result) => {
-        console.log(result)
-    });
+async function getResult() {
+    const result = await myPromise
+    console.log("This is a ", result);
+    const result2 = await result;
+    console.log(result2);
+}
 
+getResult();
+*/
 
 //Segundo
-/*
+
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         if (Math.random() >= 0.5) {
@@ -104,14 +105,16 @@ const myPromise = new Promise((resolve, reject) => {
     }, 500)
 })
 
-myPromise
-    .then((result) => {
-        return result + 1
-    })
-    .then((result) => {
-        console.log(result)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-*/
+async function getResult(){
+    try {
+        const result = await myPromise;
+        return result + 1;
+        const result2 = await result;
+        console.log(result2);
+    } catch(err){
+        console.log(err);
+    }
+
+
+
+}
